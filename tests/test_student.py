@@ -3,13 +3,14 @@ from student.student import Student, get_student_with_more_classes
 def test_init():
     name = "Ada Lovelace"
     level = "sophomore"
-    courses = ["mathematics", "foundations of computing"]
+    courses = []
 
     ada = Student(name, level, courses)
 
     assert ada.name == name
     assert ada.level == level
     assert ada.courses == courses
+    assert ada.courses == []
 
 def test_add_class():
     new_class = 'Intro to Feminism'
@@ -40,5 +41,8 @@ def test_get_student_with_more_classes():
         "sophomore",
         ["mathematics", "foundations of computing"]
     )
-
+    
     # TODO: write assertions
+    assert get_student_with_more_classes(ada, charles) == ada
+    assert get_student_with_more_classes(charles, ada) == ada
+
